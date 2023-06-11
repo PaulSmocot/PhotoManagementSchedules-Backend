@@ -54,7 +54,7 @@ namespace PhotoManagementSystem.Infrastructure.Repositories
             }
                 return null;
         }
-        public async Task DeleteUserById(Guid userId,Guid ConnectedUserID)
+        public async Task DeleteUserById(Guid userId)
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection")!;
 
@@ -65,10 +65,8 @@ namespace PhotoManagementSystem.Infrastructure.Repositories
 
                 using (OracleCommand command = new OracleCommand(Utilities.Deletequery, connection))
                 {
-                    var user = await GetUserById(ConnectedUserID);
 
-                    if (user.Role != Role.Administrator)
-                        return;
+                    
                     command.Parameters.Add("ID", OracleDbType.Raw).Value = userId;
 
                     await command.ExecuteNonQueryAsync();

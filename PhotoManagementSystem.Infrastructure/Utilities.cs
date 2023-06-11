@@ -26,5 +26,8 @@ namespace PhotoManagementSystem.Infrastructure
         public const string DeletequeryClient = "DELETE FROM Clients WHERE ID_CLIENT = :ID";
         public const string UpdateClientQuery = "UPDATE Clients SET NAME = :Name, EMAIL = :EmailAddress, PASSWORD = :Password WHERE ID_CLIENT = :Id";
         public const string updateClientQuery = "UPDATE Clients SET NAME = :Name, EMAIL = :EmailAddress,  PASSWORD = :Password WHERE ID_CLIENT = :Id";
+
+        public const string createAppointmentQuery = @"INSERT INTO Appointments_Fhoto (ID_APPOINTMENTS, ID_USER, ID_CLIENT, APPOINTMENT_DATE, LOCATION, DURATION, PREFERENCE, SERVICE, PRICE, STATUS)
+                                VALUES (:ID_APPOINTMENTS, :ID_USER, :ID_CLIENT, :APPOINTMENT_DATE, :LOCATION, :DURATION, :PREFERENCE, :SERVICE, :PRICE, :STATUS)";
     }
 }

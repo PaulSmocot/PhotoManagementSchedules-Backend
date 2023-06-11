@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PhotoManagementSystem.Domain.Models
+namespace PhotoManagementSystem.Application.Models.AppointmentsDtos
 {
-    public class Appointment
+    public class CreateAppointmentsDto
     {
-        public Guid Id { get; set; }
         public Guid IdUser { get; set; }
         public Guid IdClient { get; set; }
         public DateTime Date { get; set; }
@@ -19,7 +18,5 @@ namespace PhotoManagementSystem.Domain.Models
         public float Price { get; set; }
         public string Status { get; set; }
 
-
     }
-
 }

@@ -16,7 +16,7 @@ namespace PhotoManagementSchedules_Backend.Controllers
             this.userService = userService;
         }
 
-        [HttpPost("users/register")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register(UserRegisterDto userDto)
         {
             try
@@ -30,22 +30,22 @@ namespace PhotoManagementSchedules_Backend.Controllers
             }
         }
 
-        [HttpGet, Route("users/{id}")]
+        [HttpGet, Route("{id}")]
         public async Task<IActionResult> GetUserById(Guid id)
         {
             var user = await userService.GetUserById(id);
             return Ok(user);
         }
 
-        [HttpDelete, Route("users/{id}")]
-        public async Task<IActionResult> DeleteUserById(Guid id, Guid ConnectedUserID)
+        [HttpDelete, Route("{id}")]
+        public async Task<IActionResult> DeleteUserById(Guid id)
         {
-            await userService.DeleteUserById(id, ConnectedUserID);
+            await userService.DeleteUserById(id);
 
             return NoContent();
         }
 
-        [HttpPost, Route("users/login")]
+        [HttpPost, Route("login")]
         public async Task<IActionResult> Login(UserLoginDto userLoginDto)
         {
             var userLoginResponse = await userService.Login(userLoginDto);
@@ -53,7 +53,7 @@ namespace PhotoManagementSchedules_Backend.Controllers
             return Ok(userLoginResponse);
         }
 
-        [HttpPut, Route("users/{id}")]
+        [HttpPut, Route("{id}")]
         public async Task<IActionResult> UpdateUser(UserDto userDto, Guid id)
         {
             var userId = await userService.UpdateUser(userDto, id);

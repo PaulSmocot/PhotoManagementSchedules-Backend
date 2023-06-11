@@ -14,7 +14,7 @@ namespace PhotoManagementSystem.Application.Interfaces
     {       
         public Task<Guid> Register(UserRegisterDto userDto);
         public Task<UserGetDto> GetUserById(Guid id);
-        public Task DeleteUserById(Guid id, Guid ConnectedUserID);
+        public Task DeleteUserById(Guid id);
         public Task<UserLoginResponseDto> Login(UserLoginDto userLoginDto);
         public Task<UserDto> UpdateUser(UserDto userDto, Guid id);
     }

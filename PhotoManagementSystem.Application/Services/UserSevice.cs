@@ -26,9 +26,9 @@ namespace PhotoManagementSystem.Application.Services
             this.mapper = mapper;
         }
 
-        public async Task DeleteUserById(Guid userId, Guid ConnectedUserID)
+        public async Task DeleteUserById(Guid userId)
         {
-            await userRepository.DeleteUserById(userId, ConnectedUserID);
+            await userRepository.DeleteUserById(userId);
         }
 
         public async Task<UserGetDto> GetUserById(Guid id)

@@ -12,7 +12,7 @@ namespace PhotoManagementSystem.Infrastructure.Interfaces
     {
         public Task RegisterPhotograf(User user);
         public Task<User?> GetUserById(Guid id);
-        public Task DeleteUserById(Guid userId, Guid ConnectedUserID);
+        public Task DeleteUserById(Guid userId);
         public Task<User?> GetUserByEmail(string email);
         public Task UpdateUser(User user);
 

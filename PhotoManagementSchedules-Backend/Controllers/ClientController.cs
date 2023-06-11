@@ -18,7 +18,7 @@ namespace PhotoManagementSchedules_Backend.Controllers
             this.clientService = clientService;
         }
 
-        [HttpPost("client/register")]
+        [HttpPost("register")]
         public async Task<IActionResult> RegisterClient(ClientRegisterDto clientDto)
         {
             try { 
@@ -31,14 +31,14 @@ namespace PhotoManagementSchedules_Backend.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpGet, Route("client/{id}")]
+        [HttpGet, Route("{id}")]
         public async Task<IActionResult> GetClientById(Guid id)
         {
             var client = await clientService.GetClientById(id);
             return Ok(client);
         }
 
-        [HttpDelete, Route("client/{id}")]
+        [HttpDelete, Route("{id}")]
         public async Task<IActionResult> DeleteClientById(Guid id)
         {
             await clientService.DeleteClientById(id);
@@ -46,7 +46,7 @@ namespace PhotoManagementSchedules_Backend.Controllers
             return NoContent();
         }
 
-        [HttpPost, Route("client/login")]
+        [HttpPost, Route("login")]
         public async Task<IActionResult> Login(ClientLoginDto clientLoginDto)
         {
             var clientLoginResponse = await clientService.Login(clientLoginDto);
@@ -54,7 +54,7 @@ namespace PhotoManagementSchedules_Backend.Controllers
             return Ok(clientLoginResponse);
         }
 
-        [HttpPut, Route("client/{id}")]
+        [HttpPut, Route("{id}")]
         public async Task<IActionResult> UpdateClient(ClientDto clientDto, Guid id)
         {
             var clientId = await clientService.UpdateClient(clientDto, id);

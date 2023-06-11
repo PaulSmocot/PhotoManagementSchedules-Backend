@@ -26,6 +26,11 @@ namespace PhotoManagementSchedules_Backend
 
             builder.Services.AddAutoMapper(typeof(ClientProfile));
 
+            builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            builder.Services.AddScoped<IAppointmentsService, AppointmentService>();
+
+            builder.Services.AddAutoMapper(typeof(AppointmentsProfile));
+
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll",
